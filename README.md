@@ -30,11 +30,11 @@ See https://mikiokubo.github.io/scoptrial/  and  https://www.logopt.com/scop2/
 
 Here is an example. 
 
-```python
+```
 from scoptrial.scop import *
 ```
 
-```python
+```
 '''
 Example 1 (Assignment Problem):
 Three jobs (0,1,2) must be assigned to three workers (A,B,C)
