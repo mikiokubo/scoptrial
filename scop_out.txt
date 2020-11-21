@@ -1,0 +1,24 @@
+# reading data ... done: 0.00(s)
+penalty = 170/30 (hard/soft), time = 0.00(s), iteration = 0
+# improving the initial solution greedily
+penalty = 40/30 (hard/soft), time = 0.00(s), iteration = 0
+# start tabu search
+penalty = 0/40 (hard/soft), time = 0.00(s), iteration = 2
+
+
+# penalty = 0/40 (hard/soft)
+# cpu time = 0.00/1.00(s)
+# iteration = 2/154059
+
+[best solution]
+X1: a
+X2: b
+X3: a
+X4: a
+X5: 0
+
+penalty: 0/40 (hard/soft)
+
+[Violated constraints]
+obja_b_2: 30
+objb_a_3: 10

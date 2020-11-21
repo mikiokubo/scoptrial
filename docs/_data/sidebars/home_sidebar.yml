@@ -7,24 +7,12 @@ entries:
 - folders:
   - folderitems:
     - output: web,pdf
-      title: Export to modules
-      url: /export.html
+      title: Overview
+      url: /
     - output: web,pdf
-      title: Convert to html
-      url: /export2html.html
-    - output: web,pdf
-      title: Show doc
-      url: /showdoc.html
-    - output: web,pdf
-      title: Test functions
-      url: /test.html
-    - output: web,pdf
-      title: Core functions
-      url: /core.html
-    - output: web,pdf
-      title: Command line functions
-      url: /cli.html
+      title: "\u5236\u7D04\u6700\u9069\u5316\u30B7\u30B9\u30C6\u30E0 SCOP"
+      url: 14scop.html
     output: web
-    title: Notebook
+    title: scoptrial
   output: web
   title: Sidebar
