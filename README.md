@@ -19,9 +19,10 @@
 
 4. Import package and write a code:> `from scoptrial.scop import *`
 5. (Option) Install other packages if necessarily: 
+> `!pip install plotly pandas metplotlib`
 
-> `!pip install plotly`
-
+6. (Option) If you have already installed pipenv:> `pipenv install` and then `pipenv shell'
+then, you can install the development packages and run them in virtual environment. 
 
 
 ## How to use
@@ -30,11 +31,11 @@ See https://mikiokubo.github.io/scoptrial/  and  https://www.logopt.com/scop2/
 
 Here is an example. 
 
-```
+```python
 from scoptrial.scop import *
 ```
 
-```
+```python
 '''
 Example 1 (Assignment Problem):
 Three jobs (0,1,2) must be assigned to three workers (A,B,C)
@@ -85,3 +86,22 @@ if m.Status==0:
     for v in violated:
         print (v,violated[v])
 ```
+
+    Model: 
+    number of variables = 3  
+    number of constraints= 2  
+    variable A:['0', '1', '2'] = None 
+    variable B:['0', '1', '2'] = None 
+    variable C:['0', '1', '2'] = None 
+    AD: weight= inf type=alldiff  A B C ;  :LHS =0  
+    linear_constraint: weight= 1 type=linear 15(A,0) 20(A,1) 30(A,2) 7(B,0) 15(B,1) 12(B,2) 25(C,0) 10(C,1) 13(C,2) <=0 :LHS =0 
+    
+     ================ Now solving the problem ================ 
+    
+    solution
+    A 0
+    B 2
+    C 1
+    violated constraint(s)
+    linear_constraint 37
+
