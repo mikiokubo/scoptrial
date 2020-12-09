@@ -9,22 +9,19 @@ import copy
 import platform
 import string
 _trans = str.maketrans("-+*/'(){}^=<>$ | #?,\ ", "_"*22) #文字列変換用
-import pandas as pd
 import ast
 import pickle
+import datetime as dt
+from collections import Counter
+
+#以下非標準ファイル
+import pandas as pd
 import numpy as np
-
-import base64
-from io import BytesIO
-
 import plotly.graph_objs as go
 import plotly
-
-from collections import Counter
 import plotly.figure_factory as ff
 from plotly.subplots import make_subplots
-import datetime as dt
-from IPython.display import Image, YouTubeVideo
+
 
 # Cell
 def plot_scop(file_name: str="scop_out.txt"):
@@ -68,12 +65,13 @@ class Parameters():
     """
     SCOP parameter class to control the operation of SCOP.
 
-    - TimeLimit: 	Limits the total time expended (in seconds). Positive integer. Default=600.
-    - OutputFlag: Controls the output log. Boolean. Default=False (0).
-    - RandomSeed: Sets the random seed number. Integer. Default=1.
+    - TimeLimit: Limits the total time expended (in seconds). Positive integer. Default = 600.
+    - OutputFlag: Controls the output log. Boolean. Default = False.
+    - RandomSeed: Sets the random seed number. Integer. Default = 1.
     - Target: Sets the target penalty value;
             optimization will terminate if the solver determines that the optimum penalty value
-            for the model is worse than the specified "Target." Non-negative integer. Default=0.
+            for the model is worse than the specified "Target." Non-negative integer. Default = 0.
+    - Initial: True if you want to solve the problem starting with an initial solution obtained before, False otherwise. Default = False.
     """
     def __init__(self):
         self.TimeLimit=600
@@ -81,6 +79,8 @@ class Parameters():
         self.RandomSeed=1
         self.Target =0
         self.Initial=False
+    def __str__(self):
+        return f" TimeLimit = {self.TimeLimit} \n OutputFlag = {self.OutputFlag} \n RandomSeed = {self.RandomSeed} \n Taeget = {self.Target} \n Initial = {self.Initial}"
 
 # Cell
 class Variable():
@@ -95,6 +95,8 @@ class Variable():
         if name=="" or name==None:
             name ="__x{0}".format(Variable.ID)
             Variable.ID +=1
+        if type(name) != str:
+            raise ValueError("Variable name must be a string")
         #convert illegal characters into _ (underscore)
         self.name   = str(name).translate( _trans )
         #list(domain); domain name is converted to a string
@@ -266,6 +268,14 @@ class Model(object):
             print("  RandomSeed= %s \n"%seed)
             print("  OutputFlag= %s \n"%LOG)
         import subprocess
+#         if platform.system() == "Windows":
+#             cmd = "scop -time "+str(time)+" -seed "+str(seed) #solver call for win
+#         elif platform.system()== "Darwin":
+#             cmd = "./scop -time "+str(time)+" -seed "+str(seed) #solver call for mac
+#         elif platform.system() == "Linux":
+#             cmd = "./scop-linux -time "+str(time)+" -seed "+str(seed) #solver call for linux
+
+# トライアル版の場合は以下を生かす
         if platform.system() == "Windows":
             cmd = "scop-win -time "+str(time)+" -seed "+str(seed) #solver call for win
         elif platform.system()== "Darwin":
@@ -404,6 +414,8 @@ class Constraint(object):
         if name==None or name=="":
             name="__CON[{0}]".format(Constraint.ID)
             Constraint.ID+=1
+        if type(name) != str:
+            raise ValueError("Constraint name must be a string")
         #convert illegal characters into _ (underscore)
         self.name   = str(name).translate( _trans )
         self.weight= str(weight)
@@ -435,16 +447,23 @@ class Linear(Constraint):
         """
         Constructor of linear constraint class:
         """
-        super(Linear,self).__init__(name,weight)
+        super(Linear,self).__init__(name, weight)
         #self.name = name
         #self.weight = str(weight)
-        self.rhs = rhs
-        self.direction = direction
+        if type(rhs) != type(1):
+            raise ValueError("Right-hand-side must be an integer.")
+        else:
+            self.rhs = rhs
+        if direction in ["<=", ">=", "="]:
+            self.direction = direction
+        else:
+            raise NameError("direction setting error;direction should be one of '<=', '>=', or '='")
         self.terms = []
         self.lhs = 0
 
     def __str__(self):
-        """ return the information of the linear constraint
+        """
+            return the information of the linear constraint
             the constraint is expanded and is shown in a readable format
         """
         f =["{0}: weight= {1} type=linear".format(self.name, self.weight)]
@@ -455,36 +474,38 @@ class Linear(Constraint):
 
     def addTerms(self,coeffs=[],vars=[],values=[]):
         """
-        - addTerms ( coeffs=[],vars=[],values=[] )
-        Add new terms into left-hand-side of linear constraint.
+            - addTerms ( coeffs=[],vars=[],values=[] )
+            Add new terms into left-hand-side of linear constraint.
 
-        Arguments:
-        - coeffs: Coefficients for new terms; either a list of coefficients or a single coefficient. The three arguments must have the same size.
-        - vars: Variables for new terms; either a list of variables or a single variable. The three arguments must have the same size.
-        - values: Values for new terms; either a list of values or a single value. The three arguments must have the same size.
+            Arguments:
+            - coeffs: Coefficients for new terms; either a list of coefficients or a single coefficient. The three arguments must have the same size.
+            - vars: Variables for new terms; either a list of variables or a single variable. The three arguments must have the same size.
+            - values: Values for new terms; either a list of values or a single value. The three arguments must have the same size.
 
-        Example usage:
+            Example usage:
 
-        L.addTerms(1.0, y, "A")
-        L.addTerms([2, 3, 1], [y, y, z], ["C", "D", "C"]) #2 X[y,"C"]+3 X[y,"D"]+1 X[z,"C"]
-
+            L.addTerms(1, y, "A")
+            L.addTerms([2, 3, 1], [y, y, z], ["C", "D", "C"]) #2 X[y,"C"]+3 X[y,"D"]+1 X[z,"C"]
         """
         if type(coeffs) !=type([]): #need a check whether coeffs is numeric ...
-            #arguments are nor list; add a term
-            if type(coeffs)==type(1):
+            #arguments are not a list; add a term
+            if type(coeffs)==type(1):  #整数の場合だけ追加する．
                 self.terms.append( (coeffs,vars,str(values)))
+            else:
+                raise ValueError("Coefficient must be an integer.")
         elif type(coeffs)!=type([]) or type(vars)!=type([]) or type(values)!=type([]):
             raise TypeError("coeffs, vars, values must be lists")
         elif len(coeffs)!=len(vars) or len(coeffs)!=len(values):
             raise TypeError("length of coeffs, vars, values must be identical")
-        elif len(coeffs) !=len(vars) or len(coeffs) !=len(values):
-            raise TypeError("error: length of coeffs, vars, and values must be identical")
         else:
             for i in range(len(coeffs)):
                 self.terms.append( (coeffs[i],vars[i],str(values[i])))
 
     def setRhs(self,rhs=0):
-        self.rhs = rhs
+        if type(rhs) != type(1):
+            raise ValueError("Right-hand-side must be an integer.")
+        else:
+            self.rhs = rhs
 
     def setDirection(self,direction="<="):
         if direction in ["<=",">=","="]:
@@ -495,7 +516,8 @@ class Linear(Constraint):
                            )
 
     def feasible(self,allvars):
-        """ return True if the constraint is defined correctly
+        """
+        return True if the constraint is defined correctly
         """
         for (coeff,var,value) in self.terms:
             if var.name not in allvars:
@@ -527,8 +549,16 @@ class Quadratic(Constraint):
 
     def __init__(self,name=None,weight=1,rhs=0,direction="<="):
         super(Quadratic,self).__init__(name,weight)
-        self.rhs = rhs
-        self.direction = direction
+        if type(rhs) != type(1):
+            raise ValueError("Right-hand-side must be an integer.")
+        else:
+            self.rhs = rhs
+        if direction in ["<=", ">=", "="]:
+            self.direction = direction
+        else:
+            raise NameError(
+                "direction setting error;direction should be one of '<=', '>=', or '='"
+                  )
         self.terms = []
         self.lhs =0
 
@@ -566,8 +596,11 @@ class Quadratic(Constraint):
                   #2 X[y,"C"] X[x,"A"]+3 X[y,"D"] X[x,"B"]+1 X[z,"C"] X[y,"C"]
 
         """
-        if type(coeffs) !=type([]): #need a check whether coeffs is numeric ...
-            self.terms.append( (coeffs,vars,str(values),vars2,str(values2)))
+        if type(coeffs) !=type([]):
+            if type(coeffs)==type(1):  #整数の場合だけ追加する．
+                self.terms.append( (coeffs,vars,str(values),vars2,str(values2)))
+            else:
+                raise ValueError("Coefficient must be an integer.")
         elif type(coeffs)!=type([]) or type(vars)!=type([]) or type(values)!=type([]) \
              or type(vars2)!=type([]) or type(values2)!=type([]):
             raise TypeError("coeffs, vars, values must be lists")
@@ -579,7 +612,10 @@ class Quadratic(Constraint):
                 self.terms.append( (coeffs[i],vars[i],str(values[i]),vars2[i],str(values2[i])))
 
     def setRhs(self,rhs=0):
-        self.rhs = rhs
+        if type(rhs) != type(1):
+            raise ValueError("Right-hand-side must be an integer.")
+        else:
+            self.rhs = rhs
 
     def setDirection(self,direction="<="):
         if direction in ["<=", ">=", "="]:

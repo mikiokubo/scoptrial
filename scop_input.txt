@@ -1,6 +1,34 @@
-variable A in { 0,1,2 } 
- variable B in { 0,1,2 } 
- variable C in { 0,1,2 } 
+variable X1 in { 0,a,b } 
+ variable X2 in { 0,a,b } 
+ variable X3 in { 0,a,b } 
+ variable X4 in { 0,a,b } 
+ variable X5 in { 0,a,b } 
  target = 0 
- AD: weight= inf type=alldiff  A B C ; 
- linear_constraint: weight= 1 type=linear 15(A,0) 20(A,1) 30(A,2) 7(B,0) 15(B,1) 12(B,2) 25(C,0) 10(C,1) 13(C,2) <=0
+ LBa_1: weight= inf type=linear 30(X1,a) >=10
+ LBa_2: weight= inf type=linear 30(X1,a) 30(X2,a) >=20
+ LBa_3: weight= inf type=linear 30(X1,a) 30(X2,a) 30(X3,a) >=50
+ LBa_4: weight= inf type=linear 30(X1,a) 30(X2,a) 30(X3,a) 30(X4,a) >=60
+ LBa_5: weight= inf type=linear 30(X1,a) 30(X2,a) 30(X3,a) 30(X4,a) 30(X5,a) >=70
+ LBb_1: weight= inf type=linear 50(X1,b) >=0
+ LBb_2: weight= inf type=linear 50(X1,b) 50(X2,b) >=10
+ LBb_3: weight= inf type=linear 50(X1,b) 50(X2,b) 50(X3,b) >=30
+ LBb_4: weight= inf type=linear 50(X1,b) 50(X2,b) 50(X3,b) 50(X4,b) >=40
+ LBb_5: weight= inf type=linear 50(X1,b) 50(X2,b) 50(X3,b) 50(X4,b) 50(X5,b) >=50
+ UBa_1: weight= inf type=linear 30(X1,a) <=50
+ UBa_2: weight= inf type=linear 30(X1,a) 30(X2,a) <=60
+ UBa_3: weight= inf type=linear 30(X1,a) 30(X2,a) 30(X3,a) <=90
+ UBa_4: weight= inf type=linear 30(X1,a) 30(X2,a) 30(X3,a) 30(X4,a) <=100
+ UBa_5: weight= inf type=linear 30(X1,a) 30(X2,a) 30(X3,a) 30(X4,a) 30(X5,a) <=110
+ UBb_1: weight= inf type=linear 50(X1,b) <=40
+ UBb_2: weight= inf type=linear 50(X1,b) 50(X2,b) <=50
+ UBb_3: weight= inf type=linear 50(X1,b) 50(X2,b) 50(X3,b) <=70
+ UBb_4: weight= inf type=linear 50(X1,b) 50(X2,b) 50(X3,b) 50(X4,b) <=80
+ UBb_5: weight= inf type=linear 50(X1,b) 50(X2,b) 50(X3,b) 50(X4,b) 50(X5,b) <=90
+ obja_b_2: weight=1 type=quadratic 30(X1,a)(X2,b) <=0
+ obja_b_3: weight=1 type=quadratic 30(X2,a)(X3,b) <=0
+ obja_b_4: weight=1 type=quadratic 30(X3,a)(X4,b) <=0
+ obja_b_5: weight=1 type=quadratic 30(X4,a)(X5,b) <=0
+ objb_a_2: weight=1 type=quadratic 10(X1,b)(X2,a) <=0
+ objb_a_3: weight=1 type=quadratic 10(X2,b)(X3,a) <=0
+ objb_a_4: weight=1 type=quadratic 10(X3,b)(X4,a) <=0
+ objb_a_5: weight=1 type=quadratic 10(X4,b)(X5,a) <=0

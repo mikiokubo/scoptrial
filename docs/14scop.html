@@ -104,6 +104,13 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#27880;&#24847;">&#27880;&#24847;<a class="anchor-link" href="#&#27880;&#24847;"> </a></h2><p>SCOPでは数（制約）名や値を文字列で区別するため重複した名前を付けることはできない．
@@ -132,7 +139,7 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_scop" class="doc_header"><code>plot_scop</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_scop</code>(<strong><code>file_name</code></strong>:<code>str</code>=<em><code>'scop_out.txt'</code></em>)</p>
+<h4 id="plot_scop" class="doc_header"><code>plot_scop</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L27" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_scop</code>(<strong><code>file_name</code></strong>:<code>str</code>=<em><code>'scop_out.txt'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -170,32 +177,6 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Parameters&#12463;&#12521;&#12473;">Parameters&#12463;&#12521;&#12473;<a class="anchor-link" href="#Parameters&#12463;&#12521;&#12473;"> </a></h2><p>Parametersクラスで設定可能なパラメータは，以下の通り．</p>
-<ul>
-<li><p>TimeLimit は制限時間を表す．制限時間は正数値を設定する必要があり，その規定値は 600秒である．</p>
-</li>
-<li><p>RandomSeed は乱数の種である．SCOPでは探索にランダム性を加味しているので，乱数の種を変えると，得られる解が変わる可能性がある．
-乱数の種の規定値は 1である．</p>
-</li>
-<li><p>OutputFlag は出力フラグを表し，最適化の過程を出力する際の詳細さを制御するためのパラメータである．
-真(True もしくは正の値)に設定すると詳細な情報を出力し，
-偽(False もしくは 0)に設定すると最小限の情報を出力する．
-規定値は偽(0)である．</p>
-</li>
-<li><p>Initial は，前回最適化の探索を行った際の最良解を初期値とした探索を行うとき True ，それ以外のとき  False を表すパラメータである．
-規定値は False である．最良解の情報は，「変数:値」を1行としたテキストとしてファイル名 scop_best_data.txt に保管されている．
-このファイルを書き換えることによって，異なる初期解から探索を行うことも可能である．</p>
-</li>
-<li><p>Target は制約の逸脱量が目標値以下になったら自動終了させるためのパラメータである．
-規定値は 0 である．</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -203,6 +184,32 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parameters&#12463;&#12521;&#12473;">Parameters&#12463;&#12521;&#12473;<a class="anchor-link" href="#Parameters&#12463;&#12521;&#12473;"> </a></h2><p>Parametersクラスで設定可能なパラメータは，以下の通り．</p>
+<ul>
+<li><p>TimeLimit は制限時間を表す．制限時間は正数値を設定する必要があり，その既定値は 600秒である．</p>
+</li>
+<li><p>OutputFlag は出力フラグを表し，最適化の過程を出力する際の詳細さを制御するためのパラメータである．
+真(True もしくは正の値)に設定すると詳細な情報を出力し，
+偽(False もしくは 0)に設定すると最小限の情報を出力する．
+既定値は偽(0)である．</p>
+</li>
+<li><p>RandomSeed は乱数の種である．SCOPでは探索にランダム性を加味しているので，乱数の種を変えると，得られる解が変わる可能性がある．
+乱数の種の既定値は 1である．</p>
+</li>
+<li><p>Target は制約の逸脱量が目標値以下になったら自動終了させるためのパラメータである．
+既定値は 0 である．</p>
+</li>
+<li><p>Initial は，前回最適化の探索を行った際の最良解を初期値とした探索を行うとき True ，それ以外のとき  False を表すパラメータである．
+既定値は False である．最良解の情報は，「変数:値」を1行としたテキストとしてファイル名 scop_best_data.txt に保管されている．
+このファイルを書き換えることによって，異なる初期解から探索を行うことも可能である．</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -214,17 +221,18 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Parameters" class="doc_header"><code>class</code> <code>Parameters</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Parameters</code>()</p>
+<h2 id="Parameters" class="doc_header"><code>class</code> <code>Parameters</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L64" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Parameters</code>()</p>
 </blockquote>
 <p>SCOP parameter class to control the operation of SCOP.</p>
 <ul>
-<li>TimeLimit:        Limits the total time expended (in seconds). Positive integer. Default=600.</li>
-<li>OutputFlag: Controls the output log. Boolean. Default=False (0).</li>
-<li>RandomSeed: Sets the random seed number. Integer. Default=1.</li>
+<li>TimeLimit: Limits the total time expended (in seconds). Positive integer. Default = 600.</li>
+<li>OutputFlag: Controls the output log. Boolean. Default = False.</li>
+<li>RandomSeed: Sets the random seed number. Integer. Default = 1.</li>
 <li>Target: Sets the target penalty value;
 <pre><code>  optimization will terminate if the solver determines that the optimum penalty value
-  for the model is worse than the specified "Target." Non-negative integer. Default=0.</code></pre>
+  for the model is worse than the specified "Target." Non-negative integer. Default = 0.</code></pre>
 </li>
+<li>Initial: True if you want to solve the problem starting with an initial solution obtained before, False otherwise. Default = False.</li>
 </ul>
 
 </div>
@@ -233,6 +241,13 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -252,9 +267,28 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">()</span>
 <span class="n">params</span><span class="o">.</span><span class="n">TimeLimit</span> <span class="o">=</span> <span class="mi">3</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> TimeLimit = 3 
+ OutputFlag = 0 
+ RandomSeed = 1 
+ Taeget = 0 
+ Initial = False
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -287,13 +321,6 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -313,6 +340,13 @@ instead of by using a Variable constructor.</p>
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -345,6 +379,75 @@ instead of by using a Variable constructor.</p>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>variable X[1]:[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;] = None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">domain</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">var2</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">domain</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">var1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">var2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>variable __x0:[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;] = None
+variable __x1:[&#39;4&#39;, &#39;5&#39;, &#39;6&#39;] = None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">var1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Variable name must be a string
 </pre>
 </div>
 </div>
@@ -405,7 +508,7 @@ instead of by using a Variable constructor.</p>
 </pre></div>
 <p>モデルインスタンスは，以下の属性をもつ．</p>
 <ul>
-<li>name はモデルの名前である．コンストラクタの引数として与えられる．省略可で規定値は  '' である．</li>
+<li>name はモデルの名前である．コンストラクタの引数として与えられる．省略可で既定値は ' ' である．</li>
 <li>variables は変数インスタンスのリストである．</li>
 <li>constraints は制約インスタンスのリストである．</li>
 <li>varDict は制約名をキーとし，変数インスタンスを値とした辞書である．</li>
@@ -471,13 +574,6 @@ instead of by using a Variable constructor.</p>
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -485,7 +581,7 @@ instead of by using a Variable constructor.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L110" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>name</code></strong>=<em><code>''</code></em>)</p>
+<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L112" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>name</code></strong>=<em><code>''</code></em>)</p>
 </blockquote>
 <p>SCOP model class.</p>
 <p>Attbibutes:</p>
@@ -500,95 +596,15 @@ instead of by using a Variable constructor.</p>
 
 </div>
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Model.addVariable" class="doc_header"><code>Model.addVariable</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L159" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Model.addVariable</code>(<strong><code>name</code></strong>=<em><code>''</code></em>, <strong><code>domain</code></strong>=<em><code>[]</code></em>)</p>
-</blockquote>
-<ul>
-<li>addVariable ( name="", domain=[] )
-Add a variable to the model.</li>
-</ul>
-<p>Arguments:</p>
-<ul>
-<li>name: Name for new variable. A string object.</li>
-<li>domain: Domain (list of values) of new variable. Each value must be a string or numeric object.</li>
-</ul>
-<p>Return value:
-New variable object.</p>
-<p>Example usage:
-x = model.addVarriable("var")                     # domain  is set to []
-x = model.addVariable(name="var",domain=[1,2,3])  # arguments by name
-x = model.addVariable("var",["A","B","C"])        # arguments by position</p>
-
+</div>
 </div>
 
 </div>
+    {% endraw %}
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Model.addVariables" class="doc_header"><code>Model.addVariables</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L188" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Model.addVariables</code>(<strong><code>names</code></strong>=<em><code>[]</code></em>, <strong><code>domain</code></strong>=<em><code>[]</code></em>)</p>
-</blockquote>
-<ul>
-<li>addVariables(names=[], domain=[])
- Add variables and their (identical) domain.</li>
-</ul>
-<p>Arguments:</p>
-<ul>
-<li>names: list of new variables. A list of string objects.</li>
-<li>domain: Domain (list of values) of new variables. Each value must be a string or numeric object.</li>
-</ul>
-<p>Return value:
-List of new variable objects.</p>
-<p>Example usage:
-varlist=["var1","var2","var3"]
-x = model.addVariables(varlist)                      # domain  is set to []
-x = model.addVariables(names=varlist,domain=[1,2,3]  # arguments by name
-x = model.addVariables(varlist,["A","B","C"]         # arguments by position</p>
-
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Model.addConstraint" class="doc_header"><code>Model.addConstraint</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L214" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Model.addConstraint</code>(<strong><code>con</code></strong>)</p>
-</blockquote>
-<p>addConstraint ( con )
-Add a constraint to the model.</p>
-<p>Argument:</p>
-<ul>
-<li>con: A constraint object (Linear, Quadratic or AllDiff).</li>
-</ul>
-<p>Example usage:
-model.addConstraint(L)</p>
-
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Model.optimize" class="doc_header"><code>Model.optimize</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L240" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Model.optimize</code>()</p>
-</blockquote>
-<p>optimize ()
-Optimize the model using scop.exe in the same directory.</p>
-<p>Example usage:
-model.optimize()</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -611,7 +627,8 @@ model.optimize()</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">Params</span><span class="o">.</span><span class="n">TimeLimit</span><span class="o">=</span> <span class="mi">1</span>
 <span class="n">sol</span><span class="p">,</span> <span class="n">violated</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;solution=&quot;</span><span class="p">,</span> <span class="n">sol</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;violated constraints=&quot;</span><span class="p">,</span> <span class="n">violated</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -631,9 +648,8 @@ variable x[1]:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = None
 
  ================ Now solving the problem ================ 
 
-Status= 126
-Output= 
-None
+solution= {&#39;x[1]&#39;: &#39;0&#39;}
+violated constraints= {}
 </pre>
 </div>
 </div>
@@ -655,13 +671,6 @@ None
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -669,7 +678,7 @@ None
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Constraint" class="doc_header"><code>class</code> <code>Constraint</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L398" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Constraint</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>)</p>
+<h2 id="Constraint" class="doc_header"><code>class</code> <code>Constraint</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L408" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Constraint</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Constraint base class</p>
 
@@ -679,6 +688,13 @@ None
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -718,7 +734,7 @@ $$
 </li>
 <li><p>direction は制約の向きを表す．
 制約の向きは，
-'&lt;=' ,   '&gt;=' ,   '=' のいずれかの文字列とする．規定値は  '&lt;=' である．</p>
+'&lt;=' ,   '&gt;=' ,   '=' のいずれかの文字列とする．既定値は  '&lt;=' である．</p>
 </li>
 </ul>
 <p>上の引数はすべて Linear クラスの属性となる．最適化を行った後では，制約の左辺の評価値が属性として参照可能になる．</p>
@@ -753,10 +769,10 @@ $$
 
 <pre><code> 2 x[y,'C']  + 3 x[y,'D'] + 1 x[z,'C']</code></pre>
 <ul>
-<li><p>setRhs(rhs) は線形制約の右辺定数を  rhs に設定する．引数は整数値であり，規定値は 0 である．</p>
+<li><p>setRhs(rhs) は線形制約の右辺定数を  rhs に設定する．引数は整数値であり，既定値は 0 である．</p>
 </li>
 <li><p>setDirection(dir) は制約の向きを設定する．引数  dir は
-'&lt;=' ,   '&gt;=' ,   '=' のいずれかの文字列とする．規定値は  '&lt;=' である．</p>
+'&lt;=' ,   '&gt;=' ,   '=' のいずれかの文字列とする．既定値は  '&lt;=' である．</p>
 </li>
 <li><p>setWeight(weight) は制約の重みを  weight に設定する．引数は正数値もしくは文字列  'inf' である．
 ここで  'inf' は無限大を表し，絶対制約を定義するときに用いられる．</p>
@@ -771,13 +787,6 @@ $$
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -785,7 +794,7 @@ $$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Linear" class="doc_header"><code>class</code> <code>Linear</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L415" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Linear</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
+<h2 id="Linear" class="doc_header"><code>class</code> <code>Linear</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L427" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Linear</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
 </blockquote>
 <p>Linear ( name, weight=1, rhs=0, direction="&lt;=" )
 Linear constraint constructor.</p>
@@ -810,32 +819,15 @@ Linear constraint constructor.</p>
 
 </div>
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Linear.addTerms" class="doc_header"><code>Linear.addTerms</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L456" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Linear.addTerms</code>(<strong><code>coeffs</code></strong>=<em><code>[]</code></em>, <strong><code>vars</code></strong>=<em><code>[]</code></em>, <strong><code>values</code></strong>=<em><code>[]</code></em>)</p>
-</blockquote>
-<ul>
-<li>addTerms ( coeffs=[],vars=[],values=[] )
-Add new terms into left-hand-side of linear constraint.</li>
-</ul>
-<p>Arguments:</p>
-<ul>
-<li>coeffs: Coefficients for new terms; either a list of coefficients or a single coefficient. The three arguments must have the same size.</li>
-<li>vars: Variables for new terms; either a list of variables or a single variable. The three arguments must have the same size.</li>
-<li>values: Values for new terms; either a list of values or a single value. The three arguments must have the same size.</li>
-</ul>
-<p>Example usage:</p>
-<p>L.addTerms(1.0, y, "A")
-L.addTerms([2, 3, 1], [y, y, z], ["C", "D", "C"]) #2 X[y,"C"]+3 X[y,"D"]+1 X[z,"C"]</p>
-
+</div>
 </div>
 
 </div>
+    {% endraw %}
 
-</div>
-</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -854,7 +846,7 @@ L.addTerms([2, 3, 1], [y, y, z], ["C", "D", "C"]) #2 X[y,"C"]+3 X[y,"D"]+1 X[z,"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;a linear constraint&quot;</span><span class="p">,</span> <span class="n">rhs</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s2">&quot;&lt;=&quot;</span> <span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">]</span> <span class="p">)</span>
 <span class="n">L</span><span class="o">.</span><span class="n">addTerms</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
@@ -871,6 +863,47 @@ L.addTerms([2, 3, 1], [y, y, z], ["C", "D", "C"]) #2 X[y,"C"]+3 X[y,"D"]+1 X[z,"
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>a_linear_constraint: weight= 1 type=linear 3(x,A) &lt;=10
 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;a linear constraint&quot;</span><span class="p">,</span> <span class="n">rhs</span> <span class="o">=</span> <span class="mf">10.56</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s2">&quot;=&quot;</span> <span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    
+<span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">]</span> <span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">addTerms</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Right-hand-side must be an integer.
+Coefficient must be an integer.
 </pre>
 </div>
 </div>
@@ -926,10 +959,10 @@ $$
 <div class="highlight"><pre><span></span><span class="mi">2</span> <span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span> <span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">x</span><span class="p">[</span><span class="n">z</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]</span>
 </pre></div>
 <ul>
-<li><p>setRhs(rhs) は2次制約の右辺定数を  rhs に設定する．引数は整数値であり，規定値は 0 である．</p>
+<li><p>setRhs(rhs) は2次制約の右辺定数を  rhs に設定する．引数は整数値であり，既定値は 0 である．</p>
 </li>
 <li><p>setDirection(dir) は制約の向きを設定する．引数  dir は
-'&lt;=' ,   '&gt;=' ,   '=' のいずれかの文字列とする．規定値は  '&lt;=' である．</p>
+'&lt;=' ,   '&gt;=' ,   '=' のいずれかの文字列とする．既定値は  '&lt;=' である．</p>
 </li>
 <li><p>setWeight(weight) は制約の重みを設定する．引数は正数値もしくは文字列  'inf' である．
 'inf' は無限大を表し，絶対制約を定義するときに用いられる．</p>
@@ -944,13 +977,6 @@ $$
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -958,7 +984,7 @@ $$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Quadratic" class="doc_header"><code>class</code> <code>Quadratic</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L508" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Quadratic</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
+<h2 id="Quadratic" class="doc_header"><code>class</code> <code>Quadratic</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L530" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Quadratic</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
 </blockquote>
 <p>Quadratic ( name, weight=1, rhs=0, direction="&lt;=" )
 Quadratic constraint constructor.</p>
@@ -983,35 +1009,15 @@ Quadratic constraint constructor.</p>
 
 </div>
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Quadratic.addTerms" class="doc_header"><code>Quadratic.addTerms</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L547" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Quadratic.addTerms</code>(<strong><code>coeffs</code></strong>=<em><code>[]</code></em>, <strong><code>vars</code></strong>=<em><code>[]</code></em>, <strong><code>values</code></strong>=<em><code>[]</code></em>, <strong><code>vars2</code></strong>=<em><code>[]</code></em>, <strong><code>values2</code></strong>=<em><code>[]</code></em>)</p>
-</blockquote>
-<p>addTerms ( coeffs=[],vars=[],values=[],vars2=[],values2=[])</p>
-<p>Add new terms into left-hand-side of qua
-dratic constraint.</p>
-<p>Arguments:</p>
-<ul>
-<li>coeffs: Coefficients for new terms; either a list of coefficients or a single coefficient. The five arguments must have the same size.</li>
-<li>vars: Variables for new terms; either a list of variables or a single variable. The five arguments must have the same size.</li>
-<li>values: Values for new terms; either a list of values or a single value. The five arguments must have the same size.</li>
-<li>vars2: Variables for new terms; either a list of variables or a single variable. The five arguments must have the same size.</li>
-<li>values2: Values for new terms; either a list of values or a single value. The five arguments must have the same size.</li>
-</ul>
-<p>Example usage:</p>
-<p>L.addTerms(1.0, y, "A", z, "B")</p>
-<p>L.addTerms([2, 3, 1], [y, y, z], ["C", "D", "C"], [x, x, y], ["A", "B", "C"])</p>
-
-<pre><code>      #2 X[y,"C"] X[x,"A"]+3 X[y,"D"] X[x,"B"]+1 X[z,"C"] X[y,"C"]</code></pre>
-
+</div>
 </div>
 
 </div>
+    {% endraw %}
 
-</div>
-</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -1072,7 +1078,7 @@ dratic constraint.</p>
 <p>相異制約クラス  Alldiff のインスタンスは，以下のように生成する．</p>
 <div class="highlight"><pre><span></span><span class="n">相異制約インスタンス</span> <span class="o">=</span> <span class="n">Alldiff</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">varlist</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
 </pre></div>
-<p>引数の名前と規定値は以下の通り．</p>
+<p>引数の名前と既定値は以下の通り．</p>
 <ul>
 <li><p>name は制約名を与える．</p>
 </li>
@@ -1107,13 +1113,6 @@ dratic constraint.</p>
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -1121,7 +1120,7 @@ dratic constraint.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Alldiff" class="doc_header"><code>class</code> <code>Alldiff</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L608" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Alldiff</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>varlist</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
+<h2 id="Alldiff" class="doc_header"><code>class</code> <code>Alldiff</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L644" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Alldiff</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>varlist</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
 </blockquote>
 <p>Alldiff ( name=None,varlist=None,weight=1 )
 Alldiff type constraint constructor.</p>
@@ -1145,47 +1144,15 @@ Alldiff type constraint constructor.</p>
 
 </div>
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Alldiff.addVariable" class="doc_header"><code>Alldiff.addVariable</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L647" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Alldiff.addVariable</code>(<strong><code>var</code></strong>)</p>
-</blockquote>
-<p>addVariable ( var )
-Add new variable into all-different type constraint.</p>
-<p>Arguments:</p>
-<ul>
-<li>var: Variable object added to all-different type constraint.</li>
-</ul>
-<p>Example usage:</p>
-<p>AD.addVaeiable( x )</p>
-
+</div>
 </div>
 
 </div>
+    {% endraw %}
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Alldiff.addVariables" class="doc_header"><code>Alldiff.addVariables</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L668" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Alldiff.addVariables</code>(<strong><code>varlist</code></strong>)</p>
-</blockquote>
-<p>addVariables ( varlist )
-Add variables into all-different type constraint.</p>
-<p>Arguments:</p>
-<ul>
-<li>varlist: List or tuple of variable objects added to all-different type constraint.</li>
-</ul>
-<p>Example usage:</p>
-<p>AD.addVariables( x, y, z )</p>
-<p>AD.addVariables( [x1,x2,x2] )</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -1220,7 +1187,7 @@ Add variables into all-different type constraint.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>a_alldiff_constraint: weight= 1 type=alldiff  x y ; 
+<pre>a_alldiff_constraint: weight= 1 type=alldiff  y x ; 
 
 </pre>
 </div>
@@ -1500,20 +1467,26 @@ linear_constraint 37
 <pre>
  ================ Now solving the problem ================ 
 
-Status= 127
-Output= 
 Model: 
 number of variables = 5  
 number of constraints= 4  
-variable A:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = None 
-variable B:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = None 
-variable C:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = None 
-variable D:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = None 
-variable E:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = None 
-LB0: weight= inf type=linear 1(A,0) 1(B,0) 1(C,0) 1(D,0) 1(E,0) &gt;=1 :LHS =0  
-LB1: weight= inf type=linear 1(A,1) 1(B,1) 1(C,1) 1(D,1) 1(E,1) &gt;=2 :LHS =0  
-LB2: weight= inf type=linear 1(A,2) 1(B,2) 1(C,2) 1(D,2) 1(E,2) &gt;=2 :LHS =0  
-obj: weight= 1 type=linear 15(A,0) 20(A,1) 30(A,2) 7(B,0) 15(B,1) 12(B,2) 25(C,0) 10(C,1) 13(C,2) 15(D,0) 18(D,1) 3(D,2) 5(E,0) 12(E,1) 17(E,2) &lt;=0 :LHS =0 
+variable A:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = 1 
+variable B:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = 2 
+variable C:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = 1 
+variable D:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = 2 
+variable E:[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;] = 0 
+LB0: weight= inf type=linear 1(A,0) 1(B,0) 1(C,0) 1(D,0) 1(E,0) &gt;=1 :LHS =1  
+LB1: weight= inf type=linear 1(A,1) 1(B,1) 1(C,1) 1(D,1) 1(E,1) &gt;=2 :LHS =2  
+LB2: weight= inf type=linear 1(A,2) 1(B,2) 1(C,2) 1(D,2) 1(E,2) &gt;=2 :LHS =2  
+obj: weight= 1 type=linear 15(A,0) 20(A,1) 30(A,2) 7(B,0) 15(B,1) 12(B,2) 25(C,0) 10(C,1) 13(C,2) 15(D,0) 18(D,1) 3(D,2) 5(E,0) 12(E,1) 17(E,2) &lt;=0 :LHS =50 
+solution
+A 1
+B 2
+C 1
+D 2
+E 0
+violated constraint(s)
+obj 50
 </pre>
 </div>
 </div>
@@ -1657,66 +1630,6 @@ obj 52
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2&#27425;&#21106;&#24403;&#21839;&#38988;">2&#27425;&#21106;&#24403;&#21839;&#38988;<a class="anchor-link" href="#2&#27425;&#21106;&#24403;&#21839;&#38988;"> </a></h3><p>いま，3人のお友達が3箇所の家に住もうとしている．
-3人は毎週何回か重要な打ち合わせをする必要があり，打ち合わせの頻度は，リストのリスト．</p>
-<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
-</pre></div>
-<p>として与えられている．</p>
-<p>また，家の間の移動距離もリストのリスト</p>
-<div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
-</pre></div>
-<p>として与えられているものとする．</p>
-<p>3人は打ち合わせのときに移動する距離を最小に
-するような場所に住むことを希望している．さて，誰をどの家に割り当てたらよいのだろうか？</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#12471;&#12501;&#12488;&#12473;&#12465;&#12472;&#12517;&#12540;&#12522;&#12531;&#12464;">&#12471;&#12501;&#12488;&#12473;&#12465;&#12472;&#12517;&#12540;&#12522;&#12531;&#12464;<a class="anchor-link" href="#&#12471;&#12501;&#12488;&#12473;&#12465;&#12472;&#12517;&#12540;&#12522;&#12531;&#12464;"> </a></h3><p>あなたは，24時間営業のハンバーガーショップのオーナーであり，スタッフの1週間のシフトを組むことに頭を悩ませている．
-スタッフの時給は同じであると仮定したとき，以下の制約を満たすシフトを求めよ．</p>
-<ul>
-<li>1シフトは 8時間で，朝，昼，晩の3シフトの交代制とする．</li>
-<li>3人のスタッフは，1日に高々1つのシフトしか行うことができない．</li>
-<li>繰り返し行われる1週間のスケジュールの中で，スタッフは最低3日間は勤務しなければならない．</li>
-<li>スタッフの夜勤は最大で4回とする．</li>
-<li>各スタッフは1日以上休みを取る必要がある．</li>
-<li>各シフトに割り当てられるスタッフの数は，ちょうど 1人でなければならない．</li>
-<li>異なるシフトを翌日に行ってはいけない．（すなわち異なるシフトに移るときには，必ず休日を入れる必要がある．）</li>
-<li>シフト2, 3は，少なくとも2日間は連続で行わなければならない．</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#36554;&#12398;&#25237;&#20837;&#38918;&#27770;&#23450;">&#36554;&#12398;&#25237;&#20837;&#38918;&#27770;&#23450;<a class="anchor-link" href="#&#36554;&#12398;&#25237;&#20837;&#38918;&#27770;&#23450;"> </a></h3><p>コンベア上に一直線に並んだ車の生産ラインを考える．
-このラインは，幾つかの作業場から構成され，それぞれの作業場では異なる作業が行われる．
-いま，4種類の車を同じ生産ラインで製造しており，それぞれをモデル $A,B,C,D$ とする．
-本日の製造目標は，それぞれ $30,30,20,40$台である．</p>
-<p>最初の作業場では，サンルーフの取り付けを行っており，これはモデル $B,C$ だけに必要な作業である．
-次の作業場では，カーナビの取り付けが行われており，これはモデル $A,C$ だけに必要な作業である．
-それぞれの作業場は長さをもち，
-サンルーフ取り付けは車 $5$台分，カーナビ取り付けは車 $3$台分の長さをもつ．
-また，作業場には作業員が割り当てられており，サンルーフ取り付けは $3$人，カーナビ取り付けは $2$人の
-作業員が配置されており，作業場の長さを超えない範囲で別々に作業を行う．</p>
-<p>作業場の範囲で作業が可能な車の投入順序を求めよ．</p>
-<p>ヒント： 投入順序をうまく決めないと，作業場の範囲内で作業を完了することができない．
-たとえば，$C,A,A,B,C$ の順で投入すると，
-サンルーフ取り付けでは，3人の作業員がそれぞれモデル $C,B,C$ に対する作業を行うので
-間に合うが，カーナビ取り付けでは， 2人の作業員では $C,A,A$ の3台の車の作業を終えることができない．</p>
-<p>これは，作業場の容量制約とよばれ，サンルーフ取り付けの作業場では，
-すべての連続する $5$台の車の中に，モデル $B,C$ が高々 $3$つ，
-カーナビ取り付けの作業場では，
-すべての連続する $3$台の車の中に，モデル $A,C$ が高々 $2$つ入っているという制約を課すことに相当する</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#22810;&#21046;&#32004;&#12490;&#12483;&#12503;&#12469;&#12483;&#12463;&#21839;&#38988;">&#22810;&#21046;&#32004;&#12490;&#12483;&#12503;&#12469;&#12483;&#12463;&#21839;&#38988;<a class="anchor-link" href="#&#22810;&#21046;&#32004;&#12490;&#12483;&#12503;&#12469;&#12483;&#12463;&#21839;&#38988;"> </a></h3><p>あなたは，ぬいぐるみ専門の泥棒だ．
 ある晩，あなたは高級ぬいぐるみ店にこっそり忍び込んで，盗む物を選んでいる．
 狙いはもちろん，マニアの間で高額で取り引きされているクマさん人形だ．
@@ -1804,8 +1717,8 @@ $7$kgより重い荷物を入れると，底がぬけてしまうし，$10000 cm
 <h3 id="&#12499;&#12531;&#12497;&#12483;&#12461;&#12531;&#12464;&#21839;&#38988;">&#12499;&#12531;&#12497;&#12483;&#12461;&#12531;&#12464;&#21839;&#38988;<a class="anchor-link" href="#&#12499;&#12531;&#12497;&#12483;&#12461;&#12531;&#12464;&#21839;&#38988;"> </a></h3><p>あなたは，大企業の箱詰め担当部長だ．あなたの仕事は，色々な大きさのものを，決められた大きさの箱に「上手に」詰めることである．
 この際，使う箱の数をなるべく少なくすることが，あなたの目標だ．
 （なぜって，あなたの会社が利用している宅配業者では，運賃は箱の数に比例して決められるから．）
-1つの箱に詰められる荷物の上限は $20$kgと決まっており，荷物の重さはのリストは
- $(6,6,5,5,5,4,4,4,4,2,2,2,2,3,3,7,7,5,5,8,8,4,4,5)$ である．
+1つの箱に詰められる荷物の上限は $7$kgと決まっており，荷物の重さはのリストは
+[6,5,4,3,1,2] である．
 しかも，あなたの会社で扱っている荷物は，どれも重たいものばかりなので，容積は気にする必要はない
 （すなわち箱の容量は十分と仮定する）．
 さて，どのように詰めて運んだら良いだろうか？</p>
@@ -1825,7 +1738,67 @@ $i$行 $j$列に置いたときの費用を $i \times j$ と定義したとき�
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#27573;&#21462;&#12426;&#36027;&#29992;&#20184;&#12365;&#29983;&#29987;&#35336;&#30011;&#21839;&#38988;">&#27573;&#21462;&#12426;&#36027;&#29992;&#20184;&#12365;&#29983;&#29987;&#35336;&#30011;&#21839;&#38988;<a class="anchor-link" href="#&#27573;&#21462;&#12426;&#36027;&#29992;&#20184;&#12365;&#29983;&#29987;&#35336;&#30011;&#21839;&#38988;"> </a></h3><p>１つの生産ラインでa,bの２種類の製品を生産している．各期に生産できる製品は1つであり，生産はバッチで行われるため生産量は決まっている（辞書S）．
+<h3 id="2&#27425;&#21106;&#24403;&#21839;&#38988;">2&#27425;&#21106;&#24403;&#21839;&#38988;<a class="anchor-link" href="#2&#27425;&#21106;&#24403;&#21839;&#38988;"> </a></h3><p>いま，3人のお友達が3箇所の家に住もうとしている．
+3人は毎週何回か重要な打ち合わせをする必要があり，打ち合わせの頻度は，リストのリスト．</p>
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+<p>として与えられている．</p>
+<p>また，家の間の移動距離もリストのリスト</p>
+<div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+<p>として与えられているものとする．</p>
+<p>3人は打ち合わせのときに移動する距離を最小に
+するような場所に住むことを希望している．さて，誰をどの家に割り当てたらよいのだろうか？</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#12471;&#12501;&#12488;&#12473;&#12465;&#12472;&#12517;&#12540;&#12522;&#12531;&#12464;-&#65288;&#38627;&#65289;">&#12471;&#12501;&#12488;&#12473;&#12465;&#12472;&#12517;&#12540;&#12522;&#12531;&#12464; &#65288;&#38627;&#65289;<a class="anchor-link" href="#&#12471;&#12501;&#12488;&#12473;&#12465;&#12472;&#12517;&#12540;&#12522;&#12531;&#12464;-&#65288;&#38627;&#65289;"> </a></h3><p>あなたは，24時間営業のハンバーガーショップのオーナーであり，スタッフの1週間のシフトを組むことに頭を悩ませている．
+スタッフの時給は同じであると仮定したとき，以下の制約を満たすシフトを求めよ．</p>
+<ul>
+<li>1シフトは 8時間で，朝，昼，晩の3シフトの交代制とする．</li>
+<li>3人のスタッフは，1日に高々1つのシフトしか行うことができない．</li>
+<li>繰り返し行われる1週間のスケジュールの中で，スタッフは最低3日間は勤務しなければならない．</li>
+<li>スタッフの夜勤は最大で4回とする．</li>
+<li>各スタッフは1日以上休みを取る必要がある．</li>
+<li>各シフトに割り当てられるスタッフの数は，ちょうど 1人でなければならない．</li>
+<li>異なるシフトを翌日に行ってはいけない．（すなわち異なるシフトに移るときには，必ず休日を入れる必要がある．）</li>
+<li>シフト2, 3は，少なくとも2日間は連続で行わなければならない．</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#36554;&#12398;&#25237;&#20837;&#38918;&#27770;&#23450;-&#65288;&#38627;&#65289;">&#36554;&#12398;&#25237;&#20837;&#38918;&#27770;&#23450; &#65288;&#38627;&#65289;<a class="anchor-link" href="#&#36554;&#12398;&#25237;&#20837;&#38918;&#27770;&#23450;-&#65288;&#38627;&#65289;"> </a></h3><p>コンベア上に一直線に並んだ車の生産ラインを考える．
+このラインは，幾つかの作業場から構成され，それぞれの作業場では異なる作業が行われる．
+いま，4種類の車を同じ生産ラインで製造しており，それぞれをモデル $A,B,C,D$ とする．
+本日の製造目標は，それぞれ $30,30,20,40$台である．</p>
+<p>最初の作業場では，サンルーフの取り付けを行っており，これはモデル $B,C$ だけに必要な作業である．
+次の作業場では，カーナビの取り付けが行われており，これはモデル $A,C$ だけに必要な作業である．
+それぞれの作業場は長さをもち，
+サンルーフ取り付けは車 $5$台分，カーナビ取り付けは車 $3$台分の長さをもつ．
+また，作業場には作業員が割り当てられており，サンルーフ取り付けは $3$人，カーナビ取り付けは $2$人の
+作業員が配置されており，作業場の長さを超えない範囲で別々に作業を行う．</p>
+<p>作業場の範囲で作業が可能な車の投入順序を求めよ．</p>
+<p>ヒント： 投入順序をうまく決めないと，作業場の範囲内で作業を完了することができない．
+たとえば，$C,A,A,B,C$ の順で投入すると，
+サンルーフ取り付けでは，3人の作業員がそれぞれモデル $C,B,C$ に対する作業を行うので
+間に合うが，カーナビ取り付けでは， 2人の作業員では $C,A,A$ の3台の車の作業を終えることができない．</p>
+<p>これは，作業場の容量制約とよばれ，サンルーフ取り付けの作業場では，
+すべての連続する $5$台の車の中に，モデル $B,C$ が高々 $3$つ，
+カーナビ取り付けの作業場では，
+すべての連続する $3$台の車の中に，モデル $A,C$ が高々 $2$つ入っているという制約を課すことに相当する</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#27573;&#21462;&#12426;&#36027;&#29992;&#20184;&#12365;&#29983;&#29987;&#35336;&#30011;&#21839;&#38988;-&#65288;&#38627;&#65289;">&#27573;&#21462;&#12426;&#36027;&#29992;&#20184;&#12365;&#29983;&#29987;&#35336;&#30011;&#21839;&#38988; &#65288;&#38627;&#65289;<a class="anchor-link" href="#&#27573;&#21462;&#12426;&#36027;&#29992;&#20184;&#12365;&#29983;&#29987;&#35336;&#30011;&#21839;&#38988;-&#65288;&#38627;&#65289;"> </a></h3><p>１つの生産ラインでa,bの２種類の製品を生産している．各期に生産できる製品は1つであり，生産はバッチで行われるため生産量は決まっている（辞書S）．
 5期の需要量（辞書D）を満たすように，生産計画（どの期にどの製品を生産するか）を作りたいのだが，製品の切り替えには段取り費用（辞書F）がかかる．
 ただし，生産しないことを表すダミーの製品０があるものと仮定し，直前の期では何も生産していなかったものと仮定する．
 生産すると生産量だけ在庫が増え，毎期需要分だけ在庫が減少する．

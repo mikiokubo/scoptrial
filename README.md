@@ -22,6 +22,10 @@
 > `!pip install plotly pandas metplotlib`
 
 6. (Option) If you have already installed pipenv:> `pipenv install` and then `pipenv shell'
+7. (Option) If you have already installed poetry:
+
+> `poetry install` and then `poetry shell'
+
 then, you can install the development packages and run them in virtual environment. 
 
 

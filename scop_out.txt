@@ -1,21 +1,24 @@
 # reading data ... done: 0.00(s)
-penalty = 1/32 (hard/soft), time = 0.00(s), iteration = 0
+penalty = 170/30 (hard/soft), time = 0.00(s), iteration = 0
 # improving the initial solution greedily
-penalty = 0/47 (hard/soft), time = 0.00(s), iteration = 0
+penalty = 40/30 (hard/soft), time = 0.00(s), iteration = 0
 # start tabu search
-penalty = 0/37 (hard/soft), time = 0.00(s), iteration = 2
+penalty = 0/40 (hard/soft), time = 0.00(s), iteration = 2
 
 
-# penalty = 0/37 (hard/soft)
-# cpu time = 0.00/0.17(s)
-# iteration = 2/70859
+# penalty = 0/40 (hard/soft)
+# cpu time = 0.00/1.00(s)
+# iteration = 2/149571
 
 [best solution]
-A: 0
-B: 2
-C: 1
+X1: a
+X2: b
+X3: a
+X4: a
+X5: 0
 
-penalty: 0/37 (hard/soft)
+penalty: 0/40 (hard/soft)
 
 [Violated constraints]
-linear_constraint: 37
+obja_b_2: 30
+objb_a_3: 10
