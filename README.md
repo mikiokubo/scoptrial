@@ -19,14 +19,8 @@
 
 4. Import package and write a code:> `from scoptrial.scop import *`
 5. (Option) Install other packages if necessarily: 
-> `!pip install plotly pandas metplotlib`
 
-6. (Option) If you have already installed pipenv:> `pipenv install` and then `pipenv shell'
-7. (Option) If you have already installed poetry:
-
-> `poetry install` and then `poetry shell'
-
-then, you can install the development packages and run them in virtual environment. 
+> `!pip install plotly pandas numpy metplotlib`
 
 
 ## How to use
