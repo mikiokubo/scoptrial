@@ -30,12 +30,15 @@ def plot_scop(file_name: str="scop_out.txt"):
     x, y1, y2 = [],[],[]
     for l in out[5:]:
         sep = re.split("[=()/]", l)
-        if sep[0] != 'penalty ':
+        #print(sep)
+        if sep[0] == '# penalty ':
             break
-        hard, soft, cpu = map(float, [ sep[1], sep[2], sep[6]])
-        x.append(cpu)
-        y1.append(hard)
-        y2.append(soft)
+        if sep[0] == 'penalty ':
+            hard, soft, cpu = map(float, [ sep[1], sep[2], sep[6]])
+            x.append(cpu)
+            y1.append(hard)
+            y2.append(soft)
+
     fig = go.Figure()
     fig.add_trace(go.Scatter(
             x = x,

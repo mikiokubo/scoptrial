@@ -221,7 +221,7 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Parameters" class="doc_header"><code>class</code> <code>Parameters</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L64" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Parameters</code>()</p>
+<h2 id="Parameters" class="doc_header"><code>class</code> <code>Parameters</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Parameters</code>()</p>
 </blockquote>
 <p>SCOP parameter class to control the operation of SCOP.</p>
 <ul>
@@ -328,7 +328,7 @@ SCOPでは，単に制約を満たす解を求めるだけでなく，
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Variable" class="doc_header"><code>class</code> <code>Variable</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L86" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Variable</code>(<strong><code>name</code></strong>=<em><code>''</code></em>, <strong><code>domain</code></strong>=<em><code>[]</code></em>)</p>
+<h2 id="Variable" class="doc_header"><code>class</code> <code>Variable</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L89" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Variable</code>(<strong><code>name</code></strong>=<em><code>''</code></em>, <strong><code>domain</code></strong>=<em><code>[]</code></em>)</p>
 </blockquote>
 <p>SCOP variable class. Variables are associated with a particular model.
 You can create a variable object by adding a variable to a model (using Model.addVariable or Model.addVariables)
@@ -581,7 +581,7 @@ variable __x1:[&#39;4&#39;, &#39;5&#39;, &#39;6&#39;] = None
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L112" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>name</code></strong>=<em><code>''</code></em>)</p>
+<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L115" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>name</code></strong>=<em><code>''</code></em>)</p>
 </blockquote>
 <p>SCOP model class.</p>
 <p>Attbibutes:</p>
@@ -678,7 +678,7 @@ violated constraints= {}
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Constraint" class="doc_header"><code>class</code> <code>Constraint</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L408" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Constraint</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>)</p>
+<h2 id="Constraint" class="doc_header"><code>class</code> <code>Constraint</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L411" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Constraint</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Constraint base class</p>
 
@@ -794,7 +794,7 @@ $$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Linear" class="doc_header"><code>class</code> <code>Linear</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L427" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Linear</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
+<h2 id="Linear" class="doc_header"><code>class</code> <code>Linear</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L430" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Linear</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
 </blockquote>
 <p>Linear ( name, weight=1, rhs=0, direction="&lt;=" )
 Linear constraint constructor.</p>
@@ -984,7 +984,7 @@ $$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Quadratic" class="doc_header"><code>class</code> <code>Quadratic</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L530" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Quadratic</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
+<h2 id="Quadratic" class="doc_header"><code>class</code> <code>Quadratic</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L533" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Quadratic</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>, <strong><code>rhs</code></strong>=<em><code>0</code></em>, <strong><code>direction</code></strong>=<em><code>'&lt;='</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
 </blockquote>
 <p>Quadratic ( name, weight=1, rhs=0, direction="&lt;=" )
 Quadratic constraint constructor.</p>
@@ -1120,7 +1120,7 @@ Quadratic constraint constructor.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Alldiff" class="doc_header"><code>class</code> <code>Alldiff</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L644" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Alldiff</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>varlist</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
+<h2 id="Alldiff" class="doc_header"><code>class</code> <code>Alldiff</code><a href="https://github.com/mikiokubo/scoptrial/tree/master/scoptrial/scop.py#L647" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Alldiff</code>(<strong><code>name</code></strong>=<em><code>None</code></em>, <strong><code>varlist</code></strong>=<em><code>None</code></em>, <strong><code>weight</code></strong>=<em><code>1</code></em>) :: <a href="/scoptrial/14scop.html#Constraint"><code>Constraint</code></a></p>
 </blockquote>
 <p>Alldiff ( name=None,varlist=None,weight=1 )
 Alldiff type constraint constructor.</p>
